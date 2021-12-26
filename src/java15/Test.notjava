@@ -1,0 +1,12 @@
+package java15;
+
+/*
+ * Make a byte array with
+ * ((Get-Content -raw .\Test.class -Encoding Byte) | ForEach-Object { "(byte) 0x{0:x2}" -f $_ }) -join ", " | Set-Clipboard
+ */
+public class Test {
+    public void greeting() {
+        System.out.println("This is a hidden class");
+    }
+}
+
