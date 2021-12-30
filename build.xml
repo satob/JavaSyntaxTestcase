@@ -1,3 +1,8 @@
+<!--
+ To generate HTML report, run:
+ ant -lib ${env:CLOVER_HOME}/lib with.clover clean
+ ant -lib ${env:CLOVER_HOME}/lib with.clover run clover.html
+-->
 <project>
     <property environment="env"/>
     <property name="clover.jar" location="${env.CLOVER_HOME}/lib/clover.jar"/>
@@ -23,16 +28,18 @@
 
     <target name="compile">
         <javac classpathref="classpath" srcdir="src" destdir="bin" includeantruntime="false">
-          <!-- not supported by OpenClover -->
+          <!-- currently not supported by OpenClover -->
           <exclude name="**/TryWithResourcesWithVariable.java" />
+
           <exclude name="**/SwitchYield.java" />
           <exclude name="**/SwitchYieldWithArrowAndBlock.java" />
           <exclude name="**/SwitchYieldWithArrowAndComma.java" />
-          <exclude name="**/TextBlock.java" />
           <exclude name="**/PatternMatchingInstanceOf.java" />
-          <exclude name="**/RecordClass.java" />
-          <exclude name="**/SealedClass.java" />
-          <!-- Couldn't run from ant -->
+<!--
+          <exclude name="**/SealedClass1.java" />
+          <exclude name="**/SealedClass2.java" />
+-->
+          <!--Couldn't run from ant -->
           <exclude name="**/HiddenClass.java" />
         </javac>
     </target>
@@ -41,17 +48,20 @@
         <java classpath="${clover.jar};./bin" classname="java8.TryWithResources" />
         <java classpath="${clover.jar};./bin" classname="java9.DiamondOperatorWithAnonymousClass" />
         <java classpath="${clover.jar};./bin" classname="java9.InterfacePrivateMethod" />
-        <!-- <java classpath="${clover.jar};./bin" classname="java9.TryWithResourcesWithVariable" /> -->
         <java classpath="${clover.jar};./bin" classname="java10.Var" />
         <java classpath="${clover.jar};./bin" classname="java11.VarInLambdaParameter" />
-        <!-- <java classpath="${clover.jar};./bin" classname="java14.SwitchYield" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndBlock" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndComma" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java15.HiddenClass" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java15.TextBlock" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java16.PatternMatchingInstanceOf" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java16.RecordClass" /> -->
-        <!-- <java classpath="${clover.jar};./bin" classname="java16.SealedClass" /> -->
+        <java classpath="${clover.jar};./bin" classname="java15.TextBlock" />
+        <java classpath="${clover.jar};./bin" classname="java16.RecordClass" />
+        <java classpath="${clover.jar};./bin" classname="java16.SealedClass1" />
+        <java classpath="${clover.jar};./bin" classname="java16.SealedClass2" />
+<!--
+        <java classpath="${clover.jar};./bin" classname="java9.TryWithResourcesWithVariable" />
+        <java classpath="${clover.jar};./bin" classname="java14.SwitchYield" />
+        <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndBlock" />
+        <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndComma" />
+        <java classpath="${clover.jar};./bin" classname="java15.HiddenClass" />
+        <java classpath="${clover.jar};./bin" classname="java16.PatternMatchingInstanceOf" />
         <java classpath="${clover.jar};./bin" classname="java16.StaticMemberInInternalClass" />
+-->
     </target>
 </project>
