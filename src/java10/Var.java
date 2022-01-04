@@ -7,10 +7,7 @@ import java.io.PrintStream;
 public class Var {
     public static void main(String[] args) throws FileNotFoundException {
         System.setOut(new PrintStream(new File("nul")));
-
-        var testString = "";
-        if (testString.isEmpty()) {
-            System.out.println("string is empty");
-        }
+        Java10Var t = new Java10Var();
+        t.varVariable();
     }
 }
