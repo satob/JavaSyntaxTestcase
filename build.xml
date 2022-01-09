@@ -4,45 +4,69 @@
  ant -lib ${env:CLOVER_HOME}/lib with.clover run clover.html
 -->
 <project>
-    <property environment="env"/>
-    <property name="clover.jar" location="${env.CLOVER_HOME}/lib/clover.jar"/>
-    <taskdef resource="cloverlib.xml" classpath="${clover.jar}"/>
-    <path id="classpath">
-        <pathelement path="${clover.jar}"/>
-    </path>
+	<property environment="env"/>
+	<property name="clover.jar" location="${env.CLOVER_HOME}/lib/clover.jar"/>
+	<taskdef resource="cloverlib.xml" classpath="${clover.jar}"/>
+	<path id="classpath">
+		<pathelement path="${clover.jar}"/>
+	</path>
 
-    <target name="with.clover">
-        <clover-setup/>
-    </target>
-    <target name="clover.html">
-        <clover-html-report outdir="coverage"/>
-    </target>
+	<target name="with.clover">
+		<clover-setup/>
+	</target>
+	<target name="clover.html">
+		<clover-html-report outdir="coverage"/>
+	</target>
 
-    <target name="clean">
-      <delete>
-        <fileset dir="./bin" includes="**/*.class"/>
-      </delete>
-      <delete dir="coverage" />
-      <clover-clean />
-    </target>
+	<target name="clean">
+		<delete>
+			<fileset dir="./bin" includes="**/*.class"/>
+		</delete>
+		<delete dir="coverage" />
+		<clover-clean />
+	</target>
 
-    <target name="compile">
-        <!-- <sleep seconds="20" /> -->
-        <javac classpathref="classpath" srcdir="src" destdir="bin" includeantruntime="false">
-          <!-- switch‚ðŽ®‚Æ‚µ‚Ä•]‰¿‚·‚éÛ‚ÌInstrumentation‚ª•s–¾ -->
-          <exclude name="**/java14/SwitchYield.java" />
-          <exclude name="**/java14/SwitchYieldWithArrowAndBlock.java" />
-          <exclude name="**/java14/SwitchYieldWithArrowAndComma.java" />
+	<target name="compile">
+		<!-- <sleep seconds="20" /> -->
+		<javac classpathref="classpath" srcdir="src" destdir="bin" includeantruntime="false">
+			<exclude name="**/java8/TryWithResources.java" />
+			<exclude name="**/java8/Java8TypeAnnotations.java" />
 
-          <!-- Couldn't run from ant -->
-          <exclude name="**/java15/HiddenClass.java" />
+			<exclude name="**/java9/DiamondOperatorWithAnonymousClass.java" />
+			<exclude name="**/java9/InterfacePrivateMethod.java" />
+			<exclude name="**/java9/TryWithResourcesWithVariable.java" />
+			<exclude name="**/java9/Java9TryWithResourcesWithVariable.java" />
+			<exclude name="**/java10/Java10Var.java" />
+			<exclude name="**/java10/Var.java" />
+			<exclude name="**/java11/VarInLambdaParameter.java" />
+			<exclude name="**/java11/Java11VarInLambdaParameter.java" />
+			<exclude name="**/java15/Java15TextBlock.java" />
+			<exclude name="**/java15/TextBlock.java" />
+			<exclude name="**/java16/RecordClass.java" />
+			<exclude name="**/java16/SealedClass1.java" />
+			<exclude name="**/java16/SealedClass2.java" />
+			<exclude name="**/java16/StaticMemberInInternalClass.java" />
+			<exclude name="**/typeannotation/fielddeclarationgenerics/TypeAnnotationInFieldDeclarationGenerics.java" />
+			<exclude name="**/typeannotation/newoperator/TypeAnnotationInNewOperator.java" />
+			<exclude name="**/typeannotation/fielddeclarationarray/TypeAnnotationInFieldDeclarationArray.java" />
+			<exclude name="**/typeannotation/newoperatorarray/TypeAnnotationInNewOperatorArray.java" />
 
-          <!-- if•¶‚Ö‚Ì||‘}“ü‚Æ—¼—§‚³‚¹‚é•û–@‚ªŒ©‚Â‚©‚ç‚È‚¢  -->
-          <exclude name="**/java16/PatternMatchingInstanceOf.java" />
-        </javac>
-    </target>
+			<!-- switchã‚’å¼ã¨ã—ã¦è©•ä¾¡ã™ã‚‹éš›ã®InstrumentationãŒä¸æ˜Ž -->
+			<exclude name="**/java14/SwitchYield.java" />
+			<exclude name="**/java14/SwitchYieldWithArrowAndBlock.java" />
+			<exclude name="**/java14/SwitchYieldWithArrowAndComma.java" />
 
-    <target name="run" depends="compile">
+			<!-- Couldn't run from ant -->
+			<exclude name="**/java15/HiddenClass.java" />
+
+			<!-- ifæ–‡ã¸ã®||æŒ¿å…¥ã¨ä¸¡ç«‹ã•ã›ã‚‹æ–¹æ³•ãŒè¦‹ã¤ã‹ã‚‰ãªã„  -->
+			<exclude name="**/java16/PatternMatchingInstanceOf.java" />
+		</javac>
+	</target>
+
+	<target name="run" depends="compile">
+		<!--
+        <java classpath="${clover.jar};./bin" classname="java8.Java8TypeAnnotations" />
         <java classpath="${clover.jar};./bin" classname="java8.TryWithResources" />
         <java classpath="${clover.jar};./bin" classname="java9.DiamondOperatorWithAnonymousClass" />
         <java classpath="${clover.jar};./bin" classname="java9.InterfacePrivateMethod" />
@@ -54,12 +78,12 @@
         <java classpath="${clover.jar};./bin" classname="java16.SealedClass1" />
         <java classpath="${clover.jar};./bin" classname="java16.SealedClass2" />
         <java classpath="${clover.jar};./bin" classname="java16.StaticMemberInInternalClass" />
-<!--
+
         <java classpath="${clover.jar};./bin" classname="java14.SwitchYield" />
         <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndBlock" />
         <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndComma" />
         <java classpath="${clover.jar};./bin" classname="java15.HiddenClass" />
         <java classpath="${clover.jar};./bin" classname="java16.PatternMatchingInstanceOf" />
 -->
-    </target>
+	</target>
 </project>
