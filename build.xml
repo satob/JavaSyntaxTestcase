@@ -29,8 +29,13 @@
 	<target name="compile">
 		<!-- <sleep seconds="20" /> -->
 		<javac classpathref="classpath" srcdir="src" destdir="bin" includeantruntime="false">
+			<classpath location="lib/lombok.jar" />
+			<exclude name="**/lombok/**.java" />
+
+
 			<exclude name="**/java8/TryWithResources.java" />
 			<exclude name="**/java8/Java8TypeAnnotations.java" />
+			<exclude name="**/java8/Java8ArrayConstructorReference.java" />
 
 			<exclude name="**/java9/DiamondOperatorWithAnonymousClass.java" />
 			<exclude name="**/java9/InterfacePrivateMethod.java" />
@@ -50,6 +55,7 @@
 			<exclude name="**/typeannotation/newoperator/TypeAnnotationInNewOperator.java" />
 			<exclude name="**/typeannotation/fielddeclarationarray/TypeAnnotationInFieldDeclarationArray.java" />
 			<exclude name="**/typeannotation/newoperatorarray/TypeAnnotationInNewOperatorArray.java" />
+			<exclude name="**/typeannotation/fielddeclarationpostposingarray/TypeAnnotationInFieldDeclarationPostposingArray.java" />
 
 			<!-- switchを式として評価する際のInstrumentationが不明 -->
 			<exclude name="**/java14/SwitchYield.java" />
@@ -66,6 +72,7 @@
 
 	<target name="run" depends="compile">
 		<!--
+        <java classpath="${clover.jar};./bin" classname="lombok.LombokTest" />
         <java classpath="${clover.jar};./bin" classname="java8.Java8TypeAnnotations" />
         <java classpath="${clover.jar};./bin" classname="java8.TryWithResources" />
         <java classpath="${clover.jar};./bin" classname="java9.DiamondOperatorWithAnonymousClass" />

@@ -7,8 +7,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import java.util.HashMap;
 
-import typeannotation.newoperator.AnnotationForType1;
-
 public class TypeAnnotationInFieldDeclarationGenerics {
     private final HashMap<@AnnotationForType1 String, String> map = new HashMap<>();
 
