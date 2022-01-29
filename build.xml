@@ -32,30 +32,14 @@
 			<classpath location="lib/lombok.jar" />
 			<exclude name="**/lombok/**.java" />
 
-
-			<exclude name="**/java8/TryWithResources.java" />
-			<exclude name="**/java8/Java8TypeAnnotations.java" />
-			<exclude name="**/java8/Java8ArrayConstructorReference.java" />
-
-			<exclude name="**/java9/DiamondOperatorWithAnonymousClass.java" />
-			<exclude name="**/java9/InterfacePrivateMethod.java" />
-			<exclude name="**/java9/TryWithResourcesWithVariable.java" />
-			<exclude name="**/java9/Java9TryWithResourcesWithVariable.java" />
-			<exclude name="**/java10/Java10Var.java" />
-			<exclude name="**/java10/Var.java" />
-			<exclude name="**/java11/VarInLambdaParameter.java" />
-			<exclude name="**/java11/Java11VarInLambdaParameter.java" />
-			<exclude name="**/java15/Java15TextBlock.java" />
+			<exclude name="**/java8/**.java" />
+			<exclude name="**/java9/**.java" />
+			<exclude name="**/java10/**.java" />
+			<exclude name="**/java11/**.java" />
 			<exclude name="**/java15/TextBlock.java" />
-			<exclude name="**/java16/RecordClass.java" />
-			<exclude name="**/java16/SealedClass1.java" />
-			<exclude name="**/java16/SealedClass2.java" />
-			<exclude name="**/java16/StaticMemberInInternalClass.java" />
-			<exclude name="**/typeannotation/fielddeclarationgenerics/TypeAnnotationInFieldDeclarationGenerics.java" />
-			<exclude name="**/typeannotation/newoperator/TypeAnnotationInNewOperator.java" />
-			<exclude name="**/typeannotation/fielddeclarationarray/TypeAnnotationInFieldDeclarationArray.java" />
-			<exclude name="**/typeannotation/newoperatorarray/TypeAnnotationInNewOperatorArray.java" />
-			<exclude name="**/typeannotation/fielddeclarationpostposingarray/TypeAnnotationInFieldDeclarationPostposingArray.java" />
+			<exclude name="**/java15/Java15TextBlockAnnotation.java" />
+			<exclude name="**/java16/**.java" />
+			<exclude name="**/typeannotation/**/**.java" />
 
 			<!-- switchを式として評価する際のInstrumentationが不明 -->
 			<exclude name="**/java14/SwitchYield.java" />

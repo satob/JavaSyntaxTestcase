@@ -3,31 +3,35 @@ package java15;
 public class Java15TextBlock {
     public void textBlock() {
 
-        var textBlock = """
-                text
-                block""";
-        System.out.println(textBlock);
-
         System.out.println("""
-                text
-                block
-                """);
-
-        var textBlockConcatinate = """
-                text \
-                block \
-                concatinated""";
-        System.out.println(textBlockConcatinate);
-
-        System.out.println("""
-                text \
-                block \
-                concatinated
                 """);
 
         System.out.println("""
-                contains \""" \
-                in the value
+                "" " " ""
+                """);
+
+        System.out.println("""
+                \" \"" \u005c" \u005c""
+                """);
+
+        System.out.println("""
+                \t \r \n \r \t
+                """);
+
+        System.out.println("""
+                \u005c\ \\u005c
+                """);
+
+        System.out.println("""
+                text \
+                concatinated""");
+
+        System.out.println("""
+                contains "" \u005c""
+                """);
+
+        System.out.println("""
+                contains \""" \u005c"""
                 """);
     }
 }
