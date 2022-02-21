@@ -16,5 +16,10 @@ public class SwitchYieldWithArrowAndComma {
             yield 9;
         };
         System.out.println(value);
+
+        switch (day) {
+        case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> System.out.println("WEEKDAY");
+        case SATURDAY, SUNDAY -> System.out.println("HOLIDAY");
+        };
     }
 }

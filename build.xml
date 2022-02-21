@@ -36,13 +36,12 @@
 			<exclude name="**/java9/**.java" />
 			<exclude name="**/java10/**.java" />
 			<exclude name="**/java11/**.java" />
-			<exclude name="**/java15/TextBlock.java" />
-			<exclude name="**/java15/Java15TextBlockAnnotation.java" />
+			<exclude name="**/java15/**.java" />
 			<exclude name="**/java16/**.java" />
 			<exclude name="**/typeannotation/**/**.java" />
 
 			<!-- switchを式として評価する際のInstrumentationが不明 -->
-			<exclude name="**/java14/SwitchYield.java" />
+			<!-- <exclude name="**/java14/SwitchYield.java" /> -->
 			<exclude name="**/java14/SwitchYieldWithArrowAndBlock.java" />
 			<exclude name="**/java14/SwitchYieldWithArrowAndComma.java" />
 
