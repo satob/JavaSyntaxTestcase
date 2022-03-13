@@ -38,10 +38,17 @@
 			<exclude name="**/java11/**.java" />
 			<exclude name="**/java15/**.java" />
 			<exclude name="**/java16/**.java" />
-			<exclude name="**/typeannotation/**/**.java" />
+			<exclude name="**/typeannotation/fielddeclarationarray/**.java" />
+			<exclude name="**/typeannotation/fielddeclarationgenerics/**.java" />
+			<exclude name="**/typeannotation/fielddeclarationpostposingarray/**.java" />
+			<exclude name="**/typeannotation/implementsclause/**.java" />
+			<exclude name="**/typeannotation/newoperator/**.java" />
+			<exclude name="**/typeannotation/newoperatorarray/**.java" />
+			<exclude name="**/typeannotation/typeparameter/**.java" />
+			<exclude name="**/typeannotation/instanceofoperator/**.java" />
 
 			<!-- switchを式として評価する際のInstrumentationが不明 -->
-			<!-- <exclude name="**/java14/SwitchYield.java" /> -->
+			<exclude name="**/java14/SwitchYield.java" />
 			<exclude name="**/java14/SwitchYieldWithArrowAndBlock.java" />
 			<exclude name="**/java14/SwitchYieldWithArrowAndComma.java" />
 
@@ -54,7 +61,7 @@
 	</target>
 
 	<target name="run" depends="compile">
-		<!--
+        <!--
         <java classpath="${clover.jar};./bin" classname="lombok.LombokTest" />
         <java classpath="${clover.jar};./bin" classname="java8.Java8TypeAnnotations" />
         <java classpath="${clover.jar};./bin" classname="java8.TryWithResources" />
@@ -64,7 +71,6 @@
         <java classpath="${clover.jar};./bin" classname="java10.Var" />
         <java classpath="${clover.jar};./bin" classname="java11.VarInLambdaParameter" />
         <java classpath="${clover.jar};./bin" classname="java15.TextBlock" />
-        <java classpath="${clover.jar};./bin" classname="java16.RecordClass" />
         <java classpath="${clover.jar};./bin" classname="java16.SealedClass1" />
         <java classpath="${clover.jar};./bin" classname="java16.SealedClass2" />
         <java classpath="${clover.jar};./bin" classname="java16.StaticMemberInInternalClass" />
@@ -74,6 +80,7 @@
         <java classpath="${clover.jar};./bin" classname="java14.SwitchYieldWithArrowAndComma" />
         <java classpath="${clover.jar};./bin" classname="java15.HiddenClass" />
         <java classpath="${clover.jar};./bin" classname="java16.PatternMatchingInstanceOf" />
--->
+        <java classpath="${clover.jar};./bin" classname="java16.RecordClass" />
+        -->
 	</target>
 </project>
